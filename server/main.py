@@ -1,7 +1,9 @@
-from fastapi import FastAPI, WebSocket
 from typing import List
 
+from fastapi import FastAPI, WebSocket
+
 app = FastAPI()
+
 
 class ConnectionManager:
     def __init__(self):
@@ -24,8 +26,5 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
     await manager.connect(websocket)
     while True:
         data = await websocket.receive_text()
-        print("broadcast from " + client_id)
+        print("broadcast from {}".format(client_id))
         await manager.broadcast(f"{data}")
-
-
-

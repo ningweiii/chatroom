@@ -59,7 +59,7 @@ export default class App extends Component {
             <Text id="main-heading" type="secondary" style={{ fontSize: '36px' }}>Websocket Chat: {this.state.userName}</Text>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: 50 }} id="messages">
-            {this.state.messages.map(message => 
+            {this.state.messages.map(message =>
               <Card key={message.msg} style={{ width: 300, margin: '16px 4px 0 4px', alignSelf: this.state.userName === message.user ? 'flex-end' : 'flex-start' }} loading={false}>
                 <Meta
                   avatar={
@@ -68,7 +68,7 @@ export default class App extends Component {
                   title={message.user+":"}
                   description={message.msg}
                 />
-              </Card> 
+              </Card>
             )}
           </div>
           <div className="bottom">
@@ -80,7 +80,7 @@ export default class App extends Component {
               onChange={(e) => this.setState({ searchVal: e.target.value })}
               onSearch={value => this.onButtonClicked(value)}
             />
-          </div> 
+          </div>
         </div>
         :
         <div style={{ padding: '200px 40px' }}>
